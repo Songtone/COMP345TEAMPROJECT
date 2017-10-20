@@ -9,7 +9,7 @@ void mainPlayerLoop();
 
 int main() {
 
-
+	mainPlayerLoop();
 	system("pause");
 	return 0;
 }
@@ -23,24 +23,26 @@ void mainPlayerLoop() {
 		cout << "Choose an option" << endl;
 		cout << "1. Reinforce" << endl;
 		cout << "2. Attack" << endl;
-		cout << "3. Fortify" << endl;
+		cout << "3. Fortify \n" << endl;
 		cin >> x;
+		cout << endl;
+		
 		switch (x) {
-		case '1': if (rF == true) {
+		case 1 : if (rF == true) {
 			cout << "Reinforcement Initiated!" << endl;
-			cout << "Reinforce function should be here" << endl; // reinforcement() function here
+			cout << "Reinforce function should be here. \n" << endl; // reinforcement() function here
 			rF = false;
 		}
 				  else if (rF == false) {
 					  cout << "Reinforcement can only be used once." << endl;
-						  cout << "Choose a valide option" << endl;
+						  cout << "Choose a valid option \n" << endl;
 		}
 				  break;
-		case '2': cout << "Attack Initiated!" << endl;
-			cout << "Attack function should be here." << endl; //attack() function should be here
+		case 2 : cout << "Attack Initiated!" << endl;
+			cout << "Attack function should be here. \n" << endl; //attack() function should be here
 			break;
 		
-		case '3': cout << "Fortification Initiated!" << endl;
+		case 3 : cout << "Fortification Initiated!" << endl;
 			phases = false;
 			break;
 		}
