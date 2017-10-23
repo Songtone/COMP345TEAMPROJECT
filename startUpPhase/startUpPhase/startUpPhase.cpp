@@ -11,12 +11,22 @@ void startUp(int numberOfPlayers);
 
 class players {
 	int rolled;
+	string name;
 public:
 	void playerRoll(int roll) {
 		rolled = roll;
 	}
 	int getPlayerRoll() { return rolled; }
-	string p;
+	void setName(string s) {
+		name = s;
+	}
+	string getName() { return name; }
+	players() : rolled(0) {}
+	players(const players& p)
+	{
+		name = p.name;
+		rolled = p.rolled;
+	}
 };
 
 int main()
@@ -34,45 +44,34 @@ void startUp(int numberOfPlayers) {
 	int n;
 	switch (numberOfPlayers) {
 	case 2: 
-		players player[2+1];
-		n = sizeof(player)/sizeof(player[0]) - 1;
+		players player[2];
+		n = sizeof(player)/sizeof(player[0]);
 		cout << "Size is " << n << endl;
 
-		player[0].p = "Player 1";
-		player[1].p = "Player 2";
+		player[0].setName("Player 1");
+		player[1].setName("Player 2");
 		while (turnOrder) {//determining the turn order. we can put the players in an array.
 			for (int i = 0; i < 2; i++) {
 				player[i].playerRoll(rand() % 6 + 1);
-				cout << player[i].p << " Rolled: " << player[i].getPlayerRoll() << endl;
+				cout << player[i].getName() << " Rolled: " << player[i].getPlayerRoll() << endl;
 				turnOrder = false;
 			}
-			/*for (int i = 0; i < n - 1; i++) {
+			for (int i = 0; i < n - 1; i++) {
 				for (int j = 0; j < n - i - 1; j++) {
-					if (player[j].getPlayerRoll() > player[j + 1].getPlayerRoll()) {
-						player[numberOfPlayers + 1] = player[j];
+					if (player[j].getPlayerRoll() < player[j + 1].getPlayerRoll()) {
+						players temp = player[j];
 						player[j] = player[j + 1];
-						player[j + 1] = player[numberOfPlayers + 1];
+						player[j + 1] = temp;
 
 					}
 				}
 			}
 			cout << "Turn Order" << endl;
-			for (int i = 0; i < n - 1; i++) {
-				cout << player[i].p << endl;
-			}*/
+			for (int i = 0; i < n; i++) {
+				cout << player[i].getName() << endl;
+			}
 				
 			
-			if (player[0].getPlayerRoll() > player[1].getPlayerRoll()) {
-				cout << "Player 1 starts! Followed by Player 2" << endl;
-				turnOrder = false;
-			}
-			else if(player[0].getPlayerRoll() < player[1].getPlayerRoll()) {
-				cout << "Player 2 starts! Followed by Player 1" << endl;
-				turnOrder = false;
-			}
-			else {
-				cout << "It's a tie! Reroll!" << endl;
-			}
 		}
 		break;
 	/*case 3:

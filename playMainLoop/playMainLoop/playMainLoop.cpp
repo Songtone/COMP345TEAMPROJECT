@@ -40,6 +40,7 @@ void mainPlayerLoop() {
 				  break;
 		case 2 : cout << "Attack Initiated!" << endl;
 			cout << "Attack function should be here. \n" << endl; //attack() function should be here
+			cout << " If this players owns all countries, the game will end" << endl;
 			break;
 		
 		case 3 : cout << "Fortification Initiated!" << endl;
