@@ -19,7 +19,7 @@ int main()
 void gameStart() {
 	cout << "WELCOME TO RISK!\n\n\n" << endl;
 	cout << "Please select a map!" << endl;
-	cout << "Map loader function here" << endl;//have a way to have the map loader choose the map here.
+	cout << "Map loader function here" << endl;//have a way to have the map loader choose the map here. Make sure it is a valid map
 
 	while (playerNumb) {
 		cout << "Please select a number of players! (2-6)" << endl;
@@ -33,23 +33,23 @@ void gameStart() {
 			cout << "You have selected " << playerNumber << " players!" << endl;// create the players.
 
 			switch (playerNumber) {//create the stuff for the players.
-			case 2: cout << "Each player will receive 40 armies" << endl;
+			case 2:
 				cout << "Assign the players their own dice rolling faciities, assign each an empty card hand and create deck of cards." << endl;
 				cout << "For " << playerNumber << " players." << endl;
 				break;
-			case 3: cout << "Each player will receive 35 armies" << endl;
+			case 3:
 				cout << "Assign the players their own dice rolling faciities, assign each an empty card hand and create deck of cards." << endl;
 				cout << "For " << playerNumber << " players." << endl;
 				break;
-			case 4: cout << "Each player will receive 30 armies" << endl;
+			case 4:
 				cout << "Assign the players their own dice rolling faciities, assign each an empty card hand and create deck of cards." << endl;
 				cout << "For " << playerNumber << " players." << endl;
 				break;
-			case 5: cout << "Each player will receive 25 armies" << endl;
+			case 5:
 				cout << "Assign the players their own dice rolling faciities, assign each an empty card hand and create deck of cards." << endl;
 				cout << "For " << playerNumber << " players." << endl;
 				break;
-			case 6: cout << "Each player will receive 20 armies" << endl;
+			case 6:
 				cout << "Assign the players their own dice rolling faciities, assign each an empty card hand and create deck of cards." << endl;
 				cout << "For " << playerNumber << " players." << endl;
 				break;
@@ -60,4 +60,5 @@ void gameStart() {
 
 
 }
+
 
