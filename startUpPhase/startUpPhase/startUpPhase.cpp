@@ -6,8 +6,9 @@
 using namespace std;
 
 int numPlay;
+bool playerNumber = true;
 bool turnOrder = true;
-void startUp(int numberOfPlayers);
+void turnOrderFunction(int numberOfPlayers);
 
 class players {
 	int rolled;
@@ -28,31 +29,37 @@ public:
 		rolled = p.rolled;
 	}
 };
-
 int main()
 {
-	cout <<"How many players?" << endl;
-	cin >> numPlay;
-	startUp(numPlay);
+	while (playerNumber) {
+		cout << "How many players?" << endl;
+		cin >> numPlay;
+		if (numPlay < 2 || numPlay > 6) {
+			cout << "Invalid number of players!" << endl;
+			cout << "Please try again!" << endl;
+		}
+		else {
+			turnOrderFunction(numPlay);
+			playerNumber = false;
+		}
+	}
 	system("pause");
 	return 0;
 }
 
-void startUp(int numberOfPlayers) {
+void turnOrderFunction(int numberOfPlayers) {
 	srand(time(NULL));
 	int n;
-	
+	string s;
 		players *player;
 		player = new players[numberOfPlayers];
 		n = numberOfPlayers;
-		cout << "Size is " << n << endl;
-
-		player[0].setName("Player 1");
-		player[1].setName("Player 2");
 		while (turnOrder) {//determining the turn order. we can put the players in an array.
 			for (int i = 0; i < n; i++) {
+				s = to_string(i+1);
+				player[i].setName("Player " + s);
 				player[i].playerRoll(rand() % 6 + 1);
-				cout << player[i].getName() << " Rolled: " << player[i].getPlayerRoll() << endl;
+				cout << player[i].getName() << " Rolled: " << player[i].getPlayerRoll() << "\n"<< endl;
 				turnOrder = false;
 			}
 			for (int i = 0; i < n - 1; i++) {
@@ -69,9 +76,6 @@ void startUp(int numberOfPlayers) {
 				cout << player[i].getName() << endl;
 			}
 		}
-		
-	
-
 }
 
 
