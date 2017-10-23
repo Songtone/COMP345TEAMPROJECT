@@ -34,8 +34,8 @@ void startUp(int numberOfPlayers) {
 	int n;
 	switch (numberOfPlayers) {
 	case 2: 
-		players player[2];
-		n = sizeof(player)/sizeof(player[0]);
+		players player[2+1];
+		n = sizeof(player)/sizeof(player[0]) - 1;
 		cout << "Size is " << n << endl;
 
 		player[0].p = "Player 1";
@@ -46,34 +46,33 @@ void startUp(int numberOfPlayers) {
 				cout << player[i].p << " Rolled: " << player[i].getPlayerRoll() << endl;
 				turnOrder = false;
 			}
-			
-				/*for (int i = 0; i < n - 1; i++) {
-					for (int j = 0; j < n - 1; j++) {
-						if (arr[j] > arr[j + 1]) {
+			/*for (int i = 0; i < n - 1; i++) {
+				for (int j = 0; j < n - i - 1; j++) {
+					if (player[j].getPlayerRoll() > player[j + 1].getPlayerRoll()) {
+						player[numberOfPlayers + 1] = player[j];
+						player[j] = player[j + 1];
+						player[j + 1] = player[numberOfPlayers + 1];
 
-						}
 					}
 				}
-			
-			void swapping(int *first, int *second) {
-				int temp = *first;
-				*second = *first;
-				*first = temp;
-
+			}
+			cout << "Turn Order" << endl;
+			for (int i = 0; i < n - 1; i++) {
+				cout << player[i].p << endl;
 			}*/
-
-		
-			/*if (player1.playerRoll > player2.playerRoll) {
+				
+			
+			if (player[0].getPlayerRoll() > player[1].getPlayerRoll()) {
 				cout << "Player 1 starts! Followed by Player 2" << endl;
 				turnOrder = false;
 			}
-			else if(player1.playerRoll < player2.playerRoll) {
+			else if(player[0].getPlayerRoll() < player[1].getPlayerRoll()) {
 				cout << "Player 2 starts! Followed by Player 1" << endl;
 				turnOrder = false;
 			}
 			else {
 				cout << "It's a tie! Reroll!" << endl;
-			}*/
+			}
 		}
 		break;
 	/*case 3:
