@@ -1,5 +1,4 @@
 ﻿  startUpPhase.cpp
 c:\users\seb\desktop\comp345teamproject\startupphase\startupphase\startupphase.cpp(42): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\seb\desktop\comp345teamproject\startupphase\startupphase\startupphase.cpp(43): warning C4101: 'size': unreferenced local variable
   startUpPhase.vcxproj -> C:\Users\Seb\Desktop\COMP345TEAMPROJECT\startUpPhase\Debug\startUpPhase.exe
   startUpPhase.vcxproj -> C:\Users\Seb\Desktop\COMP345TEAMPROJECT\startUpPhase\Debug\startUpPhase.pdb (Partial PDB)
