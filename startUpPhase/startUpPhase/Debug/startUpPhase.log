@@ -1,0 +1,4 @@
+﻿  startUpPhase.cpp
+c:\users\songt\desktop\comp345teamproject\startupphase\startupphase\startupphase.cpp(27): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  startUpPhase.vcxproj -> C:\Users\songt\Desktop\COMP345TEAMPROJECT\startUpPhase\Debug\startUpPhase.exe
+  startUpPhase.vcxproj -> C:\Users\songt\Desktop\COMP345TEAMPROJECT\startUpPhase\Debug\startUpPhase.pdb (Partial PDB)
