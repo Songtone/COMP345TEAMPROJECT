@@ -43,6 +43,8 @@ void mainPlayerLoop() {
 			break;
 		
 		case 3 : cout << "Fortification Initiated!" << endl;
+			cout << "Fortification Function should be here" << endl;
+			cout << "Next player function should be here" << endl;
 			phases = false;
 			break;
 		}
