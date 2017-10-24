@@ -6,12 +6,16 @@
 using namespace std;
 
 int numPlay;
+int numberOfCountries;
+int numberOfCountriesAssigned;
 bool playerNumber = true;
 bool turnOrder = true;
-void turnOrderFunction(int numberOfPlayers);
+void startUp(int numberOfPlayers);
+
 
 class players {
 	int rolled;
+	int army;
 	string name;
 public:
 	void playerRoll(int roll) {
@@ -22,11 +26,16 @@ public:
 		name = s;
 	}
 	string getName() { return name; }
-	players() : rolled(0) {}
-	players(const players& p)
+	void setArmiesToPlace(int a) {
+		army = a;
+	}
+	int getArmies() { return army; }
+	players() : rolled(0),army(0),name("Player 0") {}//default constructor
+	players(const players& p)//copy constructor
 	{
 		name = p.name;
 		rolled = p.rolled;
+		army = p.army;
 	}
 };
 int main()
@@ -39,7 +48,7 @@ int main()
 			cout << "Please try again!" << endl;
 		}
 		else {
-			turnOrderFunction(numPlay);
+			startUp(numPlay);
 			playerNumber = false;
 		}
 	}
@@ -47,7 +56,7 @@ int main()
 	return 0;
 }
 
-void turnOrderFunction(int numberOfPlayers) {
+void startUp(int numberOfPlayers) {
 	srand(time(NULL));
 	int n;
 	string s;
@@ -62,7 +71,7 @@ void turnOrderFunction(int numberOfPlayers) {
 				cout << player[i].getName() << " Rolled: " << player[i].getPlayerRoll() << "\n"<< endl;
 				turnOrder = false;
 			}
-			for (int i = 0; i < n - 1; i++) {
+			for (int i = 0; i < n - 1; i++) {//bubble sort
 				for (int j = 0; j < n - i - 1; j++) {
 					if (player[j].getPlayerRoll() < player[j + 1].getPlayerRoll()) {
 						players temp = player[j];
@@ -73,10 +82,50 @@ void turnOrderFunction(int numberOfPlayers) {
 			}
 			cout << "Turn Order" << endl;
 			for (int i = 0; i < n; i++) {
-				cout << player[i].getName() << endl;
+				cout << player[i].getName() << "\n"<< endl;
+			}
+		}
+		cout << "How many countries are there?" << endl;
+		cin >> numberOfCountries;
+		numberOfCountriesAssigned = numberOfCountries / numberOfPlayers;
+		cout << "Will assign the countries to players in turn order!" << "\n" << endl;
+		cout << "Each player will receive " << numberOfCountriesAssigned << " countries at random.\n" << endl;
+
+		if (numberOfPlayers == 2) {
+			cout << "Each player receives 40 armies. \n" << endl;
+			for (int i = 0; i < n; i++) {
+				player[i].setArmiesToPlace(40);
+				cout << player[i].getName() << " received " << player[i].getArmies() << endl;
+			}
+		}
+		else if (numberOfPlayers == 3) {
+			cout << "Each player receives 35 armies.\n" << endl;
+			for (int i = 0; i < n; i++) {
+				player[i].setArmiesToPlace(35);
+				cout << player[i].getName() << " received " << player[i].getArmies() << endl;
+			}
+		}
+		else if (numberOfPlayers == 4) {
+			cout << "Each player receives 30 armies.\n" << endl;
+			for (int i = 0; i < n; i++) {
+				player[i].setArmiesToPlace(30);
+				cout << player[i].getName() << " received " << player[i].getArmies() << endl;
+			}
+		}
+		else if (numberOfPlayers == 5) {
+			cout << "Each player receives 25 armies.\n" << endl;
+			for (int i = 0; i < n; i++) {
+				player[i].setArmiesToPlace(25);
+				cout << player[i].getName() << " received " << player[i].getArmies() << endl;
+			}
+		}
+		else if (numberOfPlayers == 6) {
+			cout << "Each player receives 20 armies.\n" << endl;
+			for (int i = 0; i < n; i++) {
+				player[i].setArmiesToPlace(20);
+				cout << player[i].getName() << " received " << player[i].getArmies() << endl;
 			}
 		}
 }
-
 
 
