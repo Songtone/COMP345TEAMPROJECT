@@ -18,11 +18,11 @@ class players {
 	int army;
 	string name;
 public:
-	void playerRoll(int roll) {
+	void playerRoll(int roll) {//the players roll for the turn order
 		rolled = roll;
 	}
 	int getPlayerRoll() { return rolled; }
-	void setName(string s) {
+	void setName(string s) {//set the names of the players
 		name = s;
 	}
 	string getName() { return name; }
@@ -59,17 +59,22 @@ int main()
 void startUp(int numberOfPlayers) {
 	srand(time(NULL));
 	int n;
-	string s;
+	string playerName;
+	
 		players *player;
 		player = new players[numberOfPlayers];
 		n = numberOfPlayers;
 		while (turnOrder) {//determining the turn order. we can put the players in an array.
 			for (int i = 0; i < n; i++) {
-				s = to_string(i+1);
-				player[i].setName("Player " + s);
-				player[i].playerRoll(rand() % 6 + 1);
-				cout << player[i].getName() << " Rolled: " << player[i].getPlayerRoll() << "\n"<< endl;
+				cout << "Player " << i+1 << ", enter your name!" << endl;
+				cin >> playerName;
+				player[i].setName(playerName);
+				
 				turnOrder = false;
+			}
+			for (int i = 0; i < n; i++) {
+				player[i].playerRoll(rand() % 6 + 1);
+				cout << player[i].getName() << " Rolled: " << player[i].getPlayerRoll() << "\n" << endl;
 			}
 			for (int i = 0; i < n - 1; i++) {//bubble sort
 				for (int j = 0; j < n - i - 1; j++) {
@@ -82,14 +87,17 @@ void startUp(int numberOfPlayers) {
 			}
 			cout << "Turn Order" << endl;
 			for (int i = 0; i < n; i++) {
-				cout << player[i].getName() << "\n"<< endl;
+				cout << player[i].getName() << endl;
 			}
 		}
-		cout << "How many countries are there?" << endl;
+		cout << "\nHow many countries are there?" << endl;//assigning countries at random
 		cin >> numberOfCountries;
 		numberOfCountriesAssigned = numberOfCountries / numberOfPlayers;
 		cout << "Will assign the countries to players in turn order!" << "\n" << endl;
 		cout << "Each player will receive " << numberOfCountriesAssigned << " countries at random.\n" << endl;
+
+
+		//giving out the number of initial army for each player depending on the amount of players
 
 		if (numberOfPlayers == 2) {
 			cout << "Each player receives 40 armies. \n" << endl;
