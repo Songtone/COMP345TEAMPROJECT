@@ -9,21 +9,23 @@ int numPlay;
 int numberOfCountries;
 int numberOfCountriesAssigned;
 int numberOfCountriesOwned;
+string answer;
 bool playerNumber = true;
 bool turnOrder = true;
+bool showInfo;
 void startUp(int numberOfPlayers);
 
 
 class players {
 	int rolled;
 	int army;
-	int countriesOwned;
+	int numberOfCountriesOwned;
 	string name;
 public:
-	void playerRoll(int roll) {//the players roll for the turn order
+	void setPlayerTurnOrderRoll(int roll) {//the players roll for the turn order
 		rolled = roll;
 	}
-	int getPlayerRoll() { return rolled; }
+	int getPlayerTurnOrderRoll() { return rolled; }
 	void setName(string s) {//set the names of the players
 		name = s;
 	}
@@ -33,17 +35,22 @@ public:
 	}
 	int getArmiesToPlace() { return army; }
 	void setNumberOfCountriesOwned(int c) {
-		countriesOwned = c;
+		numberOfCountriesOwned = c;
 	}
-	int getNumberOfCountriesOwned() { return countriesOwned; }
-	players() : rolled(0),army(0),name("Player 0"),countriesOwned(0) {}//default constructor
+	int getNumberOfCountriesOwned() { return numberOfCountriesOwned; }
+	players() : rolled(0),army(0),name("Player 0"), numberOfCountriesOwned(0) {}//default constructor
 	
 	players(const players& p)//copy constructor
 	{
 		name = p.name;
 		rolled = p.rolled;
 		army = p.army;
-		countriesOwned = p.countriesOwned;
+		numberOfCountriesOwned = p.numberOfCountriesOwned;
+	}
+	void showPlayerInformation() {
+		cout << "Countries: " << "Put a list of countries this player owns." << endl;
+		cout << "Total Armies: " << "Put total armies here" << endl;
+		
 	}
 };
 int main()
@@ -60,6 +67,7 @@ int main()
 			playerNumber = false;
 		}
 	}
+
 	system("pause");
 	return 0;
 }
@@ -81,12 +89,12 @@ void startUp(int numberOfPlayers) {
 				turnOrder = false;
 			}
 			for (int i = 0; i < n; i++) {
-				player[i].playerRoll(rand() % 6 + 1);
-				cout << player[i].getName() << " Rolled: " << player[i].getPlayerRoll() << "\n" << endl;
+				player[i].setPlayerTurnOrderRoll(rand() % 6 + 1);
+				cout << player[i].getName() << " Rolled: " << player[i].getPlayerTurnOrderRoll() << "\n" << endl;
 			}
 			for (int i = 0; i < n - 1; i++) {//bubble sort
 				for (int j = 0; j < n - i - 1; j++) {
-					if (player[j].getPlayerRoll() < player[j + 1].getPlayerRoll()) {
+					if (player[j].getPlayerTurnOrderRoll() < player[j + 1].getPlayerTurnOrderRoll()) {
 						players temp = player[j];
 						player[j] = player[j + 1];
 						player[j + 1] = temp;
@@ -147,6 +155,26 @@ void startUp(int numberOfPlayers) {
 			for (int i = 0; i < n; i++) {
 				player[i].setArmiesToPlace(20);
 				cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << endl;
+			}
+		}
+		for (int i = 0; i < n; i++) {//asks the player if he wants to see his information
+			showInfo = true;
+			while (showInfo) {
+			cout << "Do you want to see your information " << player[i].getName() << "?" << endl;
+			cout << "Y/N" << endl;
+			cin >> answer;
+			
+				if (answer == "Y" || answer == "y") {
+					player[i].showPlayerInformation();
+					showInfo = false;
+				}
+				else if (answer == "N" || answer == "n") {
+					cout << "Continue" << endl;
+					showInfo = false;
+				}
+				else {
+					cout << "Invalid response, please try again! \n" << endl;
+				}
 			}
 		}
 }
