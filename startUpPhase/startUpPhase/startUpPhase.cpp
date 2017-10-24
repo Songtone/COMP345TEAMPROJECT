@@ -6,38 +6,47 @@
 using namespace std;
 
 int numPlay;
-int numberOfCountries;
 int numberOfCountriesAssigned;
-int numberOfCountriesOwned;
-string answer;
+int numberOfCountries;
+
 bool playerNumber = true;
 bool turnOrder = true;
 bool showInfo;
+
+string answer;
+
 void startUp(int numberOfPlayers);
 
 
 class players {
+	
+public:
 	int rolled;
 	int army;
 	int numberOfCountriesOwned;
+
 	string name;
-public:
+
 	void setPlayerTurnOrderRoll(int roll) {//the players roll for the turn order
 		rolled = roll;
 	}
 	int getPlayerTurnOrderRoll() { return rolled; }
+
 	void setName(string s) {//set the names of the players
 		name = s;
 	}
 	string getName() { return name; }
+
 	void setArmiesToPlace(int a) {
 		army = a;
 	}
 	int getArmiesToPlace() { return army; }
+
 	void setNumberOfCountriesOwned(int c) {
 		numberOfCountriesOwned = c;
 	}
 	int getNumberOfCountriesOwned() { return numberOfCountriesOwned; }
+
 	players() : rolled(0),army(0),name("Player 0"), numberOfCountriesOwned(0) {}//default constructor
 	
 	players(const players& p)//copy constructor
@@ -47,7 +56,8 @@ public:
 		army = p.army;
 		numberOfCountriesOwned = p.numberOfCountriesOwned;
 	}
-	void showPlayerInformation() {
+
+	void showPlayerInformation() {//show information of player
 		cout << "Countries: " << "Put a list of countries this player owns." << endl;
 		cout << "Total Armies: " << "Put total armies here" << endl;
 		
@@ -157,7 +167,7 @@ void startUp(int numberOfPlayers) {
 				cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << endl;
 			}
 		}
-		for (int i = 0; i < n; i++) {//asks the player if he wants to see his information
+		for (int i = 0; i < n; i++) {//asks the player if he wants to see his information, should be placed in game play loop
 			showInfo = true;
 			while (showInfo) {
 			cout << "Do you want to see your information " << player[i].getName() << "?" << endl;
