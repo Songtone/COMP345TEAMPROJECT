@@ -6,7 +6,7 @@
 #include <string>
 using namespace std;
 
-class players {
+class players {//player class
 
 public:
 	int rolled;
@@ -14,6 +14,7 @@ public:
 	int numberOfCountriesOwned;
 
 	string name;
+	string countryList[];
 
 	void setPlayerTurnOrderRoll(int roll) {//the players roll for the turn order
 		rolled = roll;
@@ -49,6 +50,35 @@ public:
 		cout << "Countries: " << "Put a list of countries this player owns." << endl;
 		cout << "Total Armies: " << "Put total armies here\n" << endl;
 
+	}
+};
+
+class countries {//country class
+public:
+	
+	string name;
+	string owner;
+	int armyOnCountry = 0;
+
+	void setName(string cName) {
+		name = cName;
+	}
+	string getName() { return name; }
+	void setOwner(string id) {
+		owner = id;
+	}
+	string getOwner() { return owner; }
+	void setArmyOnCountry(int army) {
+		armyOnCountry = army;
+	}
+	int getArmyOnCountry() { return armyOnCountry; }
+
+	countries() : owner("default"), name("default"),armyOnCountry(0) {} // default constructor
+
+	countries(const countries& c) {
+		owner = c.owner;
+		name = c.name;
+		armyOnCountry = c.armyOnCountry;
 	}
 };
 

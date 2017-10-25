@@ -31,6 +31,29 @@ void startUp(int numberOfPlayers) {
 	int n;
 	string playerName;
 
+	countries *country;
+	country = new countries[18];
+	country[0].setName("Ireland");
+	country[1].setName("Chile");
+	country[2].setName("Vietnam");
+	country[3].setName("South Korea");
+	country[4].setName("Canada");
+	country[5].setName("Japan");
+	country[6].setName("Israel");
+	country[7].setName("Mauritius");
+	country[8].setName("England");
+	country[9].setName("Finland");
+	country[10].setName("Serbia");
+	country[11].setName("Iraq");
+	country[12].setName("Lebanon");
+	country[13].setName("Bahamas");
+	country[14].setName("Cuba");
+	country[15].setName("Algeria");
+	country[16].setName("Russia");
+	country[17].setName("China");
+	country[18].setName("Sri Lanka");
+
+
 	players *player;
 	player = new players[numberOfPlayers];
 	n = numberOfPlayers;
