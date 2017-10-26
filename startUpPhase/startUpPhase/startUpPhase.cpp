@@ -28,6 +28,7 @@ int main()
 
 void startUp(int numberOfPlayers) {
 	srand(time(NULL));
+	int countrySize;
 	int n;
 	string playerName;
 
@@ -51,7 +52,6 @@ void startUp(int numberOfPlayers) {
 	country[15].setName("Algeria");
 	country[16].setName("Russia");
 	country[17].setName("China");
-	country[18].setName("Sri Lanka");
 
 
 	players *player;
@@ -84,10 +84,28 @@ void startUp(int numberOfPlayers) {
 			cout << player[i].getName() << endl;
 		}
 	}
-	cout << "\nHow many countries are there?" << endl;//assigning countries at random
-	cin >> numberOfCountries;
-	numberOfCountriesAssigned = numberOfCountries / numberOfPlayers;
-	cout << "Will assign the countries to players in turn order!" << "\n" << endl;
+	cout << "Here is the list of countries to be distributed among players." << endl;//assigning countries at random
+	for (int i = 0; i < 18; i++) {
+		cout << country[i].getName() << endl;
+	}
+	cout << "\nEach player will receive " << 18/numberOfPlayers << " countries at random." << endl;
+	
+
+	for (int i = 0; i < 18; i++) {//to randomaize the countries
+		country[i].setCountryRandoRoll(rand() % 20 + 1);
+	}
+	for (int i = 0; i < 18 - 1; i++) {//bubble sort to sort the countries for randomization
+		for (int j = 0; j < 18 - i - 1; j++) {
+			if (country[j].getCountryRandoRoll() < country[j+1].getCountryRandoRoll()) {
+				countries temp = country[j];
+				country[j] = country[j + 1];
+				country[j + 1] = temp;
+			}
+		}
+	}
+
+	cout << "\nWill assign the countries to players in turn order!" << "\n" << endl;
+
 	for (int i = 0; i < numberOfCountries / numberOfPlayers; i++) {
 		for (int j = 0; j < n; j++) {
 			player[j].setNumberOfCountriesOwned(player[j].getNumberOfCountriesOwned() + 1);// could show the name of the country

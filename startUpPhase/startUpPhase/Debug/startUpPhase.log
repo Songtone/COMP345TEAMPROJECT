@@ -1,4 +1,5 @@
 ﻿  startUpPhase.cpp
-c:\users\seb\desktop\comp345teamproject\startupphase\startupphase\startupphase.cpp(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  startUpPhase.vcxproj -> C:\Users\Seb\Desktop\COMP345TEAMPROJECT\startUpPhase\Debug\startUpPhase.exe
-  startUpPhase.vcxproj -> C:\Users\Seb\Desktop\COMP345TEAMPROJECT\startUpPhase\Debug\startUpPhase.pdb (Partial PDB)
+c:\users\songt\desktop\comp345teamproject\startupphase\startupphase\startupphase.cpp(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\songt\desktop\comp345teamproject\startupphase\startupphase\startupphase.cpp(31): warning C4101: 'countrySize': unreferenced local variable
+  startUpPhase.vcxproj -> C:\Users\songt\Desktop\COMP345TEAMPROJECT\startUpPhase\Debug\startUpPhase.exe
+  startUpPhase.vcxproj -> C:\Users\songt\Desktop\COMP345TEAMPROJECT\startUpPhase\Debug\startUpPhase.pdb (Partial PDB)

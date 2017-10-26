@@ -14,7 +14,7 @@ public:
 	int numberOfCountriesOwned;
 
 	string name;
-	string countryList[];
+
 
 	void setPlayerTurnOrderRoll(int roll) {//the players roll for the turn order
 		rolled = roll;
@@ -59,7 +59,12 @@ public:
 	string name;
 	string owner;
 	int armyOnCountry = 0;
-
+	int countryRando;
+	
+	void setCountryRandoRoll(int rand) {
+		countryRando = rand;
+	}
+	int getCountryRandoRoll() { return countryRando; }
 	void setName(string cName) {
 		name = cName;
 	}
