@@ -10,11 +10,11 @@ class players {//player class
 
 public:
 	int rolled;
-	int army;
+	int armyToPlace;
+	int armySize;
 	int numberOfCountriesOwned;
 
 	string name;
-
 
 	void setPlayerTurnOrderRoll(int roll) {//the players roll for the turn order
 		rolled = roll;
@@ -25,24 +25,29 @@ public:
 		name = s;
 	}
 	string getName() { return name; }
+	
+	void setArmySize(int ar) {
+		armySize = ar;
+	}
+	int getArmySize() { return armySize; }
 
 	void setArmiesToPlace(int a) {
-		army = a;
+		armyToPlace = a;
 	}
-	int getArmiesToPlace() { return army; }
+	int getArmiesToPlace() { return armyToPlace; }
 
 	void setNumberOfCountriesOwned(int c) {
 		numberOfCountriesOwned = c;
 	}
 	int getNumberOfCountriesOwned() { return numberOfCountriesOwned; }
 
-	players() : rolled(0), army(0), name("Player 0"), numberOfCountriesOwned(0) {}//default constructor
+	players() : rolled(0), armyToPlace(0), name("Player 0"), numberOfCountriesOwned(0) {}//default constructor
 
 	players(const players& p)//copy constructor
 	{
 		name = p.name;
 		rolled = p.rolled;
-		army = p.army;
+		armyToPlace = p.armyToPlace;
 		numberOfCountriesOwned = p.numberOfCountriesOwned;
 	}
 

@@ -129,10 +129,12 @@ void startUp(int numberOfPlayers) {
 	cout << "\n" << endl;
 	//giving out the number of initial army for each player depending on the amount of players
 	cout << "Giving out armies to players in round" << endl;
+	cout << "\n" << endl;
 	if (numberOfPlayers == 2) {
 
 		for (int i = 0; i < n; i++) {
 			player[i].setArmiesToPlace(40);
+			player[i].setArmySize(40);
 			cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << " armies" << endl;
 		}
 	}
@@ -140,6 +142,7 @@ void startUp(int numberOfPlayers) {
 
 		for (int i = 0; i < n; i++) {
 			player[i].setArmiesToPlace(35);
+			player[i].setArmySize(35);
 			cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << " armies" << endl;
 		}
 	}
@@ -147,6 +150,7 @@ void startUp(int numberOfPlayers) {
 
 		for (int i = 0; i < n; i++) {
 			player[i].setArmiesToPlace(30);
+			player[i].setArmySize(30);
 			cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << " armies" << endl;
 		}
 	}
@@ -154,6 +158,7 @@ void startUp(int numberOfPlayers) {
 
 		for (int i = 0; i < n; i++) {
 			player[i].setArmiesToPlace(25);
+			player[i].setArmySize(25);
 			cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << " armies" << endl;
 		}
 	}
@@ -161,6 +166,7 @@ void startUp(int numberOfPlayers) {
 
 		for (int i = 0; i < n; i++) {
 			player[i].setArmiesToPlace(20);
+			player[i].setArmySize(20);
 			cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << " armies"<< endl;
 		}
 	}
@@ -175,13 +181,13 @@ void startUp(int numberOfPlayers) {
 			cout << "\n";
 			if (answer == "Y" || answer == "y") {
 				player[i].getName();
-				cout << "Number of Armies left to place: " << player[i].getArmiesToPlace() << endl;
+				cout << "Army size: " << player[i].getArmySize() << endl;
 				cout << "Number of Countries Owned: " << player[i].getNumberOfCountriesOwned() << endl;
-				cout << "Here is a list of countries you own: " << endl;
+				cout << "Here is a list of countries you own with the army size on it: " << endl;
 				cout << "\n";
 				for (int i = 0; i < 18; i++) {
 					if (country[i].getOwner() == player[playerCount].getName()) {
-						cout << country[i].getCountryName() << endl;
+						cout << country[i].getCountryName() << ": "<< country[i].getArmyOnCountry() << endl;
 					}
 				}
 				cout << "\n";
