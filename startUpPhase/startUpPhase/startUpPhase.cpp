@@ -88,18 +88,19 @@ void startUp(int numberOfPlayers) {
 				}
 			}
 		}
-		
+		cout << "\n";
 		cout << "Turn Order" << endl;//show the turn order for the game
 		for (int i = 0; i < n; i++) {
 			cout << player[i].getName() << endl;
 		}
 	}
+	system("pause");
+	cout << "\n";
 	cout << "Here is the list of countries to be distributed among players." << endl;//assigning countries at random
 	for (int i = 0; i < 18; i++) {
 		cout << country[i].getCountryName() << endl;
 	}
-	cout << "\nEach player will receive " << 18/n << " countries at random." << endl;
-	
+	system("pause");
 
 	for (int i = 0; i < 18; i++) {//to randomaize the countries
 		country[i].setCountryRandoRoll(rand() % 20 + 1);
@@ -127,17 +128,14 @@ void startUp(int numberOfPlayers) {
 		}
 	}
 	cout << "\n";
-	for (int i = 0; i < 18; i++) {
-		cout << country[i].getCountryName() << " owned by " << country[i].getOwner() << endl;;
-	}
-	cout << "\n";
 	for (int i = 0; i < n; i++) {//display how many countries each player received
 		cout << player[i].getName() << " received " << player[i].getNumberOfCountriesOwned() << " countries" << endl;
 	}
-	cout << "\n" << endl;
+	cout << "\n";
+	system("pause");
 	//giving out the number of initial army for each player depending on the amount of players
-	cout << "Giving out armies to players in round" << endl;
-	cout << "\n" << endl;
+	cout << "Giving out armies to players in round-robin fashion" << endl;
+	cout << "\n";
 	if (numberOfPlayers == 2) {
 
 		for (int i = 0; i < n; i++) {
@@ -178,8 +176,8 @@ void startUp(int numberOfPlayers) {
 			cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << " armies"<< endl;
 		}
 	}
-	cout << "\n" << endl;
-
+	cout << "\n";
+	system("pause");
 	cout << "Time to place the armies on your countries." << endl;
 	cout << "1 army will be placed automatically on each country from the army pool of the owner." << endl;
 	for (int i = 0; i < n; i++) {//placing one army on the countries the players own
