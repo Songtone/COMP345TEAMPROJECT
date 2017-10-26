@@ -46,17 +46,13 @@ public:
 		numberOfCountriesOwned = p.numberOfCountriesOwned;
 	}
 
-	void showPlayerInformation() {//show information of player
-		cout << "Countries: " << "Put a list of countries this player owns." << endl;
-		cout << "Total Armies: " << "Put total armies here\n" << endl;
 
-	}
 };
 
 class countries {//country class
 public:
 	
-	string name;
+	string countryName;
 	string owner;
 	int armyOnCountry = 0;
 	int countryRando;
@@ -65,10 +61,10 @@ public:
 		countryRando = rand;
 	}
 	int getCountryRandoRoll() { return countryRando; }
-	void setName(string cName) {
-		name = cName;
+	void setCountryName(string cName) {
+		countryName = cName;
 	}
-	string getName() { return name; }
+	string getCountryName() { return countryName; }
 	void setOwner(string id) {
 		owner = id;
 	}
@@ -78,11 +74,11 @@ public:
 	}
 	int getArmyOnCountry() { return armyOnCountry; }
 
-	countries() : owner("default"), name("default"),armyOnCountry(0) {} // default constructor
+	countries() : owner("default"), countryName("default"),armyOnCountry(0) {} // default constructor
 
 	countries(const countries& c) {
 		owner = c.owner;
-		name = c.name;
+		countryName = c.countryName;
 		armyOnCountry = c.armyOnCountry;
 	}
 };

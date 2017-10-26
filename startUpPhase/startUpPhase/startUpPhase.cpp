@@ -30,33 +30,37 @@ void startUp(int numberOfPlayers) {
 	srand(time(NULL));
 	int countrySize;
 	int n;
+	int countryCount = 0;
+	int playerCount = 0;
 	string playerName;
 
 	countries *country;
 	country = new countries[18];
-	country[0].setName("Ireland");
-	country[1].setName("Chile");
-	country[2].setName("Vietnam");
-	country[3].setName("South Korea");
-	country[4].setName("Canada");
-	country[5].setName("Japan");
-	country[6].setName("Israel");
-	country[7].setName("Mauritius");
-	country[8].setName("England");
-	country[9].setName("Finland");
-	country[10].setName("Serbia");
-	country[11].setName("Iraq");
-	country[12].setName("Lebanon");
-	country[13].setName("Bahamas");
-	country[14].setName("Cuba");
-	country[15].setName("Algeria");
-	country[16].setName("Russia");
-	country[17].setName("China");
+
+	country[0].setCountryName("Ireland");
+	country[1].setCountryName("Chile");
+	country[2].setCountryName("Vietnam");
+	country[3].setCountryName("South Korea");
+	country[4].setCountryName("Canada");
+	country[5].setCountryName("Japan");
+	country[6].setCountryName("Israel");
+	country[7].setCountryName("Mauritius");
+	country[8].setCountryName("England");
+	country[9].setCountryName("Finland");
+	country[10].setCountryName("Serbia");
+	country[11].setCountryName("Iraq");
+	country[12].setCountryName("Lebanon");
+	country[13].setCountryName("Bahamas");
+	country[14].setCountryName("Cuba");
+	country[15].setCountryName("Algeria");
+	country[16].setCountryName("Russia");
+	country[17].setCountryName("China");
 
 
 	players *player;
 	player = new players[numberOfPlayers];
 	n = numberOfPlayers;
+
 	while (turnOrder) {//determining the turn order. we can put the players in an array.
 		for (int i = 0; i < n; i++) {
 			cout << "Player " << i + 1 << ", enter your name!" << endl;
@@ -86,9 +90,9 @@ void startUp(int numberOfPlayers) {
 	}
 	cout << "Here is the list of countries to be distributed among players." << endl;//assigning countries at random
 	for (int i = 0; i < 18; i++) {
-		cout << country[i].getName() << endl;
+		cout << country[i].getCountryName() << endl;
 	}
-	cout << "\nEach player will receive " << 18/numberOfPlayers << " countries at random." << endl;
+	cout << "\nEach player will receive " << 18/n << " countries at random." << endl;
 	
 
 	for (int i = 0; i < 18; i++) {//to randomaize the countries
@@ -106,16 +110,22 @@ void startUp(int numberOfPlayers) {
 
 	cout << "\nWill assign the countries to players in turn order!" << "\n" << endl;
 
-	for (int i = 0; i < numberOfCountries / numberOfPlayers; i++) {
+	for (int i = 0; i < 18 / n; i++) {
 		for (int j = 0; j < n; j++) {
+			cout << player[j].getName() << " received " << country[countryCount].getCountryName() << endl;
+			country[countryCount].setOwner(player[j].getName());
 			player[j].setNumberOfCountriesOwned(player[j].getNumberOfCountriesOwned() + 1);// could show the name of the country
+			countryCount++;
 		}
 	}
-
+	cout << "\n";
+	for (int i = 0; i < 18; i++) {
+		cout << country[i].getCountryName() << " owned by " << country[i].getOwner() << endl;;
+	}
+	cout << "\n";
 	for (int i = 0; i < n; i++) {//display how many countries each player received
 		cout << player[i].getName() << " received " << player[i].getNumberOfCountriesOwned() << " countries" << endl;
 	}
-
 	cout << "\n" << endl;
 	//giving out the number of initial army for each player depending on the amount of players
 	cout << "Giving out armies to players in round" << endl;
@@ -157,23 +167,36 @@ void startUp(int numberOfPlayers) {
 	cout << "\n" << endl;
 	for (int i = 0; i < n; i++) {//asks the player if he wants to see his information, should be placed in game play loop
 		showInfo = true;
+		playerCount = i;
 		while (showInfo) {
 			cout << "Do you want to see your information " << player[i].getName() << "?" << endl;
 			cout << "Y/N" << endl;
 			cin >> answer;
-
+			cout << "\n";
 			if (answer == "Y" || answer == "y") {
-				player[i].showPlayerInformation();
+				player[i].getName();
+				cout << "Number of Armies left to place: " << player[i].getArmiesToPlace() << endl;
+				cout << "Number of Countries Owned: " << player[i].getNumberOfCountriesOwned() << endl;
+				cout << "Here is a list of countries you own: " << endl;
+				cout << "\n";
+				for (int i = 0; i < 18; i++) {
+					if (country[i].getOwner() == player[playerCount].getName()) {
+						cout << country[i].getCountryName() << endl;
+					}
+				}
+				cout << "\n";
 				showInfo = false;
 			}
 			else if (answer == "N" || answer == "n") {
 				cout << "Continue" << endl;
+				cout << "\n";
 				showInfo = false;
 			}
 			else {
 				cout << "Invalid response, please try again! \n" << endl;
-				
+				cout << "\n";
 			}
+			
 		}
 	}
 }
