@@ -110,12 +110,14 @@ void startUp(int numberOfPlayers) {
 
 	cout << "\nWill assign the countries to players in turn order!" << "\n" << endl;
 
-	for (int i = 0; i < 18 / n; i++) {
+	for (int i = 0; i < 18; i++) {
 		for (int j = 0; j < n; j++) {
-			cout << player[j].getName() << " received " << country[countryCount].getCountryName() << endl;
-			country[countryCount].setOwner(player[j].getName());
-			player[j].setNumberOfCountriesOwned(player[j].getNumberOfCountriesOwned() + 1);// could show the name of the country
-			countryCount++;
+			if (countryCount < 18) {
+				cout << player[j].getName() << " received " << country[countryCount].getCountryName() << endl;
+				country[countryCount].setOwner(player[j].getName());
+				player[j].setNumberOfCountriesOwned(player[j].getNumberOfCountriesOwned() + 1);// could show the name of the country
+				countryCount++;
+			}
 		}
 	}
 	cout << "\n";
@@ -171,6 +173,19 @@ void startUp(int numberOfPlayers) {
 		}
 	}
 	cout << "\n" << endl;
+
+	cout << "Time to place the armies on your countries." << endl;
+	cout << "1 army will be placed automatically on each country from the army pool of the owner." << endl;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < 18; j++) {
+			if (player[i].getName() == country[j].getOwner()) {
+				player[i].setArmiesToPlace(player[i].getArmiesToPlace() - 1);
+				country[j].setArmyOnCountry(1);
+			}
+		}
+	}
+
+	cout << "\n" << endl;
 	for (int i = 0; i < n; i++) {//asks the player if he wants to see his information, should be placed in game play loop
 		showInfo = true;
 		playerCount = i;
@@ -181,6 +196,7 @@ void startUp(int numberOfPlayers) {
 			cout << "\n";
 			if (answer == "Y" || answer == "y") {
 				player[i].getName();
+				cout << "Army to place " << player[i].getArmiesToPlace() << endl;
 				cout << "Army size: " << player[i].getArmySize() << endl;
 				cout << "Number of Countries Owned: " << player[i].getNumberOfCountriesOwned() << endl;
 				cout << "Here is a list of countries you own with the army size on it: " << endl;
