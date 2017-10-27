@@ -90,6 +90,7 @@ void mainPlayerLoop(int numberOfPlayers) {
 	cout << "\n";
 	while (noWinner) {
 		for (int i = 0; i < n; i++) {
+			int winnerPlayer = i;
 			if (noWinner == true) {
 				phases = true;
 			}
@@ -116,7 +117,7 @@ void mainPlayerLoop(int numberOfPlayers) {
 					case 2: cout << "Attack Initiated!" << endl;
 						cout << "Attack function should be here. \n" << endl; //attack() function should be here
 						for (int i = 0; i < 18; i++) {//set all countries to one player
-							country[i].setOwner(player[0].getName());
+							country[i].setOwner(player[winnerPlayer].getName());
 							cout << country[i].getCountryName() << " Owned By: " << country[i].getOwner() << endl;
 						}
 
