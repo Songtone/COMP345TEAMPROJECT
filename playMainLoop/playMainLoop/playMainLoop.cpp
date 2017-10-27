@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "playMainLoop.h"
 #include <iostream>
+#include <time.h>
 using namespace std;
 
 
@@ -26,6 +27,7 @@ int main() {
 }
 
 void mainPlayerLoop(int numberOfPlayers) {
+	srand(time(NULL));
 	string playerName;
 	bool noWinner = true;
 	bool ownAllCountries = false;
@@ -65,6 +67,24 @@ void mainPlayerLoop(int numberOfPlayers) {
 			cin >> playerName;
 			player[i].setName(playerName);
 			turnOrder = false;
+		}
+		for (int i = 0; i < n; i++) {
+			
+			player[i].setPlayerTurnOrderRoll(rand() % 6 + 1);
+		}
+		for (int i = 0; i < n - 1; i++) {//bubble sort
+			for (int j = 0; j < n - i - 1; j++) {
+				if (player[j].getPlayerTurnOrderRoll() < player[j + 1].getPlayerTurnOrderRoll()) {
+					players temp = player[j];
+					player[j] = player[j + 1];
+					player[j + 1] = temp;
+				}
+			}
+		}
+		cout << "\n";
+		cout << "Turn Order" << endl;//show the turn order for the game
+		for (int i = 0; i < n; i++) {
+			cout << player[i].getName() << endl;
 		}
 	}
 	cout << "\n";
