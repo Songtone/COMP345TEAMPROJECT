@@ -42,7 +42,7 @@ void startUp(int numberOfPlayers) {
 
 	countries *country;
 	country = new countries[18];
-
+	//generating countries
 	country[0].setCountryName("Ireland");
 	country[1].setCountryName("Chile");
 	country[2].setCountryName("Vietnam");
@@ -62,7 +62,6 @@ void startUp(int numberOfPlayers) {
 	country[16].setCountryName("Russia");
 	country[17].setCountryName("China");
 
-
 	players *player;
 	player = new players[numberOfPlayers];
 	n = numberOfPlayers;
@@ -72,12 +71,10 @@ void startUp(int numberOfPlayers) {
 			cout << "Player " << i + 1 << ", enter your name!" << endl;
 			cin >> playerName;
 			player[i].setName(playerName);
-
 			turnOrder = false;
 		}
 		for (int i = 0; i < n; i++) {
 			player[i].setPlayerTurnOrderRoll(rand() % 6 + 1);
-			
 		}
 		for (int i = 0; i < n - 1; i++) {//bubble sort
 			for (int j = 0; j < n - i - 1; j++) {
@@ -107,14 +104,13 @@ void startUp(int numberOfPlayers) {
 	}
 	for (int i = 0; i < 18 - 1; i++) {//bubble sort to sort the countries for randomization
 		for (int j = 0; j < 18 - i - 1; j++) {
-			if (country[j].getCountryRandoRoll() < country[j+1].getCountryRandoRoll()) {
+			if (country[j].getCountryRandoRoll() < country[j + 1].getCountryRandoRoll()) {
 				countries temp = country[j];
 				country[j] = country[j + 1];
 				country[j + 1] = temp;
 			}
 		}
 	}
-
 	cout << "\nWill assign the countries to players in turn order!" << "\n" << endl;
 
 	for (int i = 0; i < 18; i++) {//assigning countries randomly to players
@@ -173,7 +169,7 @@ void startUp(int numberOfPlayers) {
 		for (int i = 0; i < n; i++) {
 			player[i].setArmiesToPlace(20);
 			player[i].setArmySize(20);
-			cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << " armies"<< endl;
+			cout << player[i].getName() << " received " << player[i].getArmiesToPlace() << " armies" << endl;
 		}
 	}
 	cout << "\n";
@@ -189,38 +185,36 @@ void startUp(int numberOfPlayers) {
 		}
 	}
 	cout << "\n";
-	
-		for (int i = 0; i < n; i++) {
-			totalArmiesToBePlaced += player[i].getArmiesToPlace();
-		}
-		for (int i = 0; i < totalArmiesToBePlaced / n + n; i++) {//loop to make sure we do every player until all armies are on the board
-			for (int j = 0; j < n; j++) {
-				if (player[j].getArmiesToPlace() > 0) {//will only go in if the player has more than 0 armies to be placed
-					cout << "Player " << player[j].getName() << endl;
-					cout << "Armies left to place: " << player[j].getArmiesToPlace() << endl;
-					for (int k = 0; k < 18; k++) {
-						if (country[k].getOwner() == player[j].getName()) {//display the country the current player owns
-							cout << k << ". " << country[k].getCountryName() << ": " << country[k].getArmyOnCountry() << endl;
-						}
-					}
-					cout << "\n";
-					while (goodCountryToPlaceArmy) {//loop in case an invalid coutry is selected
-						cout << "Please enter the number of the country you wish to place your army on." << endl;
-						cin >> countryNumber;
-						if (player[j].getName() == country[countryNumber].getOwner()) {//making sure the player picks a country he owns
-							player[j].setArmiesToPlace(player[j].getArmiesToPlace() - 1);//remove one army from the player pool
-							country[countryNumber].setArmyOnCountry(country[countryNumber].getArmyOnCountry() + 1);
-							goodCountryToPlaceArmy = false;
-						}
-						else {
-							cout << "You don't own this country, please choose a country you own." << endl;
-						}
+	for (int i = 0; i < n; i++) {
+		totalArmiesToBePlaced += player[i].getArmiesToPlace();
+	}
+	for (int i = 0; i < totalArmiesToBePlaced / n + n; i++) {//loop to make sure we do every player until all armies are on the board
+		for (int j = 0; j < n; j++) {
+			if (player[j].getArmiesToPlace() > 0) {//will only go in if the player has more than 0 armies to be placed
+				cout << "Player: " << player[j].getName() << endl;
+				cout << "Armies left to place: " << player[j].getArmiesToPlace() << endl;
+				for (int k = 0; k < 18; k++) {
+					if (country[k].getOwner() == player[j].getName()) {//display the country the current player owns
+						cout << k << ". " << country[k].getCountryName() << ": " << country[k].getArmyOnCountry() << endl;
 					}
 				}
-				goodCountryToPlaceArmy = true;
+				cout << "\n";
+				while (goodCountryToPlaceArmy) {//loop in case an invalid coutry is selected
+					cout << player[j].getName() << "please enter the number of the country you wish to place your army on." << endl;
+					cin >> countryNumber;
+					if (player[j].getName() == country[countryNumber].getOwner()) {//making sure the player picks a country he owns
+						player[j].setArmiesToPlace(player[j].getArmiesToPlace() - 1);//remove one army from the player pool
+						country[countryNumber].setArmyOnCountry(country[countryNumber].getArmyOnCountry() + 1);
+						goodCountryToPlaceArmy = false;
+					}
+					else {
+						cout << "You don't own this country, please choose a country you own." << endl;
+					}
+				}
 			}
+			goodCountryToPlaceArmy = true;
 		}
-	
+	}
 	cout << "\n" << endl;
 	for (int i = 0; i < n; i++) {//asks the player if he wants to see his information, should be placed in game play loop
 		showInfo = true;
@@ -239,7 +233,7 @@ void startUp(int numberOfPlayers) {
 				cout << "\n";
 				for (int i = 0; i < 18; i++) {
 					if (country[i].getOwner() == player[playerCount].getName()) {
-						cout << country[i].getCountryName() << ": "<< country[i].getArmyOnCountry() << endl;
+						cout << country[i].getCountryName() << ": " << country[i].getArmyOnCountry() << endl;
 					}
 				}
 				cout << "\n";
@@ -254,7 +248,6 @@ void startUp(int numberOfPlayers) {
 				cout << "Invalid response, please try again! \n" << endl;
 				cout << "\n";
 			}
-			
 		}
 	}
 }
