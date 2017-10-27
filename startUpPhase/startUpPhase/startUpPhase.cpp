@@ -175,7 +175,7 @@ void startUp(int numberOfPlayers) {
 	cout << "\n";
 	system("pause");
 	cout << "Time to place the armies on your countries." << endl;
-	cout << "1 army will be placed automatically on each country from the army pool of the owner." << endl;
+	cout << "1 army will be placed on every country from its owner." << endl;
 	for (int i = 0; i < n; i++) {//placing one army on the countries the players own
 		for (int j = 0; j < 18; j++) {
 			if (player[i].getName() == country[j].getOwner()) {
@@ -193,6 +193,7 @@ void startUp(int numberOfPlayers) {
 			if (player[j].getArmiesToPlace() > 0) {//will only go in if the player has more than 0 armies to be placed
 				cout << "Player: " << player[j].getName() << endl;
 				cout << "Armies left to place: " << player[j].getArmiesToPlace() << endl;
+				cout << "Country Number | Country Name | Army Count" << endl;
 				for (int k = 0; k < 18; k++) {
 					if (country[k].getOwner() == player[j].getName()) {//display the country the current player owns
 						cout << k << ". " << country[k].getCountryName() << ": " << country[k].getArmyOnCountry() << endl;
@@ -200,7 +201,7 @@ void startUp(int numberOfPlayers) {
 				}
 				cout << "\n";
 				while (goodCountryToPlaceArmy) {//loop in case an invalid coutry is selected
-					cout << player[j].getName() << "please enter the number of the country you wish to place your army on." << endl;
+					cout << player[j].getName() << " please enter the number of the country you wish to place your army on." << endl;
 					cin >> countryNumber;
 					if (player[j].getName() == country[countryNumber].getOwner()) {//making sure the player picks a country he owns
 						player[j].setArmiesToPlace(player[j].getArmiesToPlace() - 1);//remove one army from the player pool
@@ -215,7 +216,8 @@ void startUp(int numberOfPlayers) {
 			goodCountryToPlaceArmy = true;
 		}
 	}
-	cout << "\n" << endl;
+	cout << "\nAll armies have been placed." << endl;
+	cout << "\n";
 	for (int i = 0; i < n; i++) {//asks the player if he wants to see his information, should be placed in game play loop
 		showInfo = true;
 		playerCount = i;
