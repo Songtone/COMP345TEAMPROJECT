@@ -37,6 +37,28 @@ void mainPlayerLoop(int numberOfPlayers) {
 	player = new players[numberOfPlayers];
 	n = numberOfPlayers;
 
+	countries *country;
+	country = new countries[18];
+	//generating countries
+	country[0].setCountryName("Ireland");
+	country[1].setCountryName("Chile");
+	country[2].setCountryName("Vietnam");
+	country[3].setCountryName("South Korea");
+	country[4].setCountryName("Canada");
+	country[5].setCountryName("Japan");
+	country[6].setCountryName("Israel");
+	country[7].setCountryName("Mauritius");
+	country[8].setCountryName("England");
+	country[9].setCountryName("Finland");
+	country[10].setCountryName("Serbia");
+	country[11].setCountryName("Iraq");
+	country[12].setCountryName("Lebanon");
+	country[13].setCountryName("Bahamas");
+	country[14].setCountryName("Cuba");
+	country[15].setCountryName("Algeria");
+	country[16].setCountryName("Russia");
+	country[17].setCountryName("China");
+
 	while (turnOrder) {//determining the turn order. we can put the players in an array.
 		for (int i = 0; i < n; i++) {
 			cout << "Player " << i + 1 << ", enter your name!" << endl;
@@ -45,11 +67,12 @@ void mainPlayerLoop(int numberOfPlayers) {
 			turnOrder = false;
 		}
 	}
+	cout << "\n";
 	while (noWinner) {
 		for (int i = 0; i < n; i++) {
-			cout << player[i].getName() << endl;
+			phases = true;
 			while (phases) {
-
+				cout << "Player " << player[i].getName() << endl;
 				cout << "Choose an option" << endl;
 				cout << "1. Reinforce" << endl;
 				cout << "2. Attack" << endl;
@@ -70,7 +93,17 @@ void mainPlayerLoop(int numberOfPlayers) {
 						break;
 				case 2: cout << "Attack Initiated!" << endl;
 					cout << "Attack function should be here. \n" << endl; //attack() function should be here
-					ownAllCountries = true;
+					for (int i = 0; i < 18; i++) {//set all countries to one player
+						country[i].setOwner(player[0].getName());
+						cout << country[i].getCountryName() << " Owned By: " << country[i].getOwner() << endl;
+					}
+					
+						for (int i = 0; i < 17; i++) {
+							if (country[i].getOwner() == country[i + 1].getOwner()) {
+								ownAllCountries = true;
+							}
+						}
+
 					if (ownAllCountries) {
 						cout << " WE HAVE A WINNER " << endl;
 						noWinner = false;
@@ -80,7 +113,7 @@ void mainPlayerLoop(int numberOfPlayers) {
 
 				case 3: cout << "Fortification Initiated!" << endl;
 					cout << "Fortification Function should be here" << endl;
-					cout << "Next player function should be here" << endl;
+					cout << "\n";
 					phases = false;
 					break;
 				}
