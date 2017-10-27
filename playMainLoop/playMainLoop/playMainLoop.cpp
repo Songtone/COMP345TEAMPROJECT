@@ -70,58 +70,61 @@ void mainPlayerLoop(int numberOfPlayers) {
 	cout << "\n";
 	while (noWinner) {
 		for (int i = 0; i < n; i++) {
-			phases = true;
-			while (phases) {
-				cout << "Player " << player[i].getName() << endl;
-				cout << "Choose an option" << endl;
-				cout << "1. Reinforce" << endl;
-				cout << "2. Attack" << endl;
-				cout << "3. Fortify \n" << endl;
-				cin >> x;
-				cout << endl;
+			if (noWinner == true) {
+				phases = true;
+			}
+				while (phases) {
+					cout << "Player " << player[i].getName() << endl;
+					cout << "Choose an option" << endl;
+					cout << "1. Reinforce" << endl;
+					cout << "2. Attack" << endl;
+					cout << "3. Fortify \n" << endl;
+					cin >> x;
+					cout << endl;
 
-				switch (x) {
-				case 1: if (rF == true) {
-					cout << "Reinforcement Initiated!" << endl;
-					cout << "Reinforce function should be here. \n" << endl; // reinforcement() function here
-					rF = false;
-				}
-						else if (rF == false) {
-							cout << "Reinforcement can only be used once." << endl;
-							cout << "Choose a valid option \n" << endl;
-						}
-						break;
-				case 2: cout << "Attack Initiated!" << endl;
-					cout << "Attack function should be here. \n" << endl; //attack() function should be here
-					for (int i = 0; i < 18; i++) {//set all countries to one player
-						country[i].setOwner(player[0].getName());
-						cout << country[i].getCountryName() << " Owned By: " << country[i].getOwner() << endl;
+					switch (x) {
+					case 1: if (rF == true) {
+						cout << "Reinforcement Initiated!" << endl;
+						cout << "Reinforce function should be here. \n" << endl; // reinforcement() function here
+						rF = false;
 					}
-					
+							else if (rF == false) {
+								cout << "Reinforcement can only be used once." << endl;
+								cout << "Choose a valid option \n" << endl;
+							}
+							break;
+					case 2: cout << "Attack Initiated!" << endl;
+						cout << "Attack function should be here. \n" << endl; //attack() function should be here
+						for (int i = 0; i < 18; i++) {//set all countries to one player
+							country[i].setOwner(player[0].getName());
+							cout << country[i].getCountryName() << " Owned By: " << country[i].getOwner() << endl;
+						}
+
 						for (int i = 0; i < 17; i++) {
 							if (country[i].getOwner() == country[i + 1].getOwner()) {
 								ownAllCountries = true;
 							}
 						}
 
-					if (ownAllCountries) {
-						cout << " WE HAVE A WINNER " << endl;
-						noWinner = false;
+						if (ownAllCountries) {
+							cout << " WE HAVE A WINNER " << endl;
+							noWinner = false;
+							phases = false;
+						}
+						break;
+
+					case 3: cout << "Fortification Initiated!" << endl;
+						cout << "Fortification Function should be here" << endl;
+						cout << "\n";
 						phases = false;
+						break;
 					}
-					break;
 
-				case 3: cout << "Fortification Initiated!" << endl;
-					cout << "Fortification Function should be here" << endl;
-					cout << "\n";
-					phases = false;
-					break;
 				}
-
 			}
 		}
 	}
-	}
+	
 
 
 
