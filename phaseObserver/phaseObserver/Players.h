@@ -14,7 +14,5 @@ public:
 	~Players();
 private:
 	int phase;
-	//int hour;
-	//int minute;
-	//int second;
+	
 };

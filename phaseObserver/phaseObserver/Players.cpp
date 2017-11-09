@@ -13,7 +13,6 @@ void Players::startPlayers(int n) {
 	reinforce(n);
 	system("pause");
 	attack(n);
-	system("pause");
 	fortification(n);
 
 };

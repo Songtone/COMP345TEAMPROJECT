@@ -2,6 +2,7 @@
 #include "Phases.h"
 #include "Players.h"
 #include <iostream>
+#include <string>
 
 //CONCRETE OBSERVER
 using namespace std;
@@ -23,6 +24,7 @@ void Phases::Update(int n) {
 	display(n);
 };
 void Phases::display(int n) {
+	attack = true;
 	if (n == 1) {
 		if (_subject->getPhase() == 0) {
 			cout << "Player " << n << endl;
@@ -31,9 +33,22 @@ void Phases::display(int n) {
 			cout << endl;
 		}
 		else if (_subject->getPhase() == 1) {
-			cout << "Player " << n << endl;
-			cout << "This is the attack phase" << endl;
-			cout << endl;
+			while (attack) {
+				cout << "Player " << n << endl;
+				cout << "Do you want to Attack? Y/N" << endl;
+				cin >> confirm;
+				if (confirm == "Y" || confirm == "y") {
+					cout << "Player " << n << endl;
+					cout << "This is the attack phase" << endl;
+					cout << endl;
+				}
+				else if(confirm == "N" || confirm == "n"){
+					cout << "Player " << n << endl;
+					cout << "End of Attack Phase" << endl;
+					attack = false;
+
+				}
+			}
 		}
 		else if (_subject->getPhase() == 2) {
 			cout << "Player " << n << endl;

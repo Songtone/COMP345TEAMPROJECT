@@ -4,26 +4,36 @@
 #include <iostream>
 using namespace std;
 
+bool winner = true;
+
 int main(void) {
 	//create Phases to be observeds
-	Players *players1 = new Players;
-	Players *players2 = new Players;
+	Players *players = new Players;
+	
 
 	//create a digital clock that is connected to the Phases
-	Phases *phases1 = new Phases(players1);
-	Phases *phases2 = new Phases(players2);
+	Phases *phases = new Phases(players);
+	
 	
 
 	//Advancing the Phases updates the digital clock
 	//as tick() calls Update() after it changed its state
+	int count = 0;
+	while (winner) {
+		if (count < 5) {
+			for (int i = 0; i < 2; i++) {
+				players->startPlayers(i + 1);
+				cout << "NEXT PLAYER \n" << endl;
+			}
+			count++;
 
-	
-	players1->startPlayers(1);
-	cout << "NEXT PLAYER \n" << endl;
-	players2->startPlayers(2);
-
-
-
+		}
+		else {
+			winner = false;
+		}
+		
+	}
+	cout << "GAME OVER" << endl;
 	system("pause");
 	return 0;
 }

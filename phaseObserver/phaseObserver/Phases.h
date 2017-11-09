@@ -10,6 +10,8 @@ public:
 	~Phases();
 	void Update(int n);
 	void display(int n);
+	bool attack = true;
+	string confirm;
 private:
 	Players* _subject;
 };
