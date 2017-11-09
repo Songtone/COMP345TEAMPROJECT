@@ -5,13 +5,17 @@
 using namespace std;
 
 bool winner = true;
+int numberOfPlayers;
 
 int main(void) {
-	//create Phases to be observeds
+	cout << "How many players?" << endl;
+	cin >> numberOfPlayers;
+	//create playersto be observed
 	Players *players = new Players;
 	
+	
 
-	//create a digital clock that is connected to the Phases
+	//create a phase that is connected to the players
 	Phases *phases = new Phases(players);
 	
 	
@@ -21,7 +25,7 @@ int main(void) {
 	int count = 0;
 	while (winner) {
 		if (count < 5) {
-			for (int i = 0; i < 2; i++) {
+			for (int i = 0; i < numberOfPlayers; i++) {
 				players->startPlayers(i + 1);
 				cout << "NEXT PLAYER \n" << endl;
 			}

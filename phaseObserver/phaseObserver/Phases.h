@@ -12,6 +12,15 @@ public:
 	void display(int n);
 	bool attack = true;
 	string confirm;
+	bool winner = true;
+	string countryToReinforce;
+	string countryAttack;
+	string countryDefense;
+	string countryToReceiveFortify;
+	string countryToGiveFortify;
+	int numberOfArmiesToFortify;
+	int numberOfAttackers;
+
 private:
 	Players* _subject;
 };
