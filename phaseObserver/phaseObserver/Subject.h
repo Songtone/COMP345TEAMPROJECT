@@ -1,4 +1,8 @@
 #pragma once
+#ifndef SUBJECT_H
+#define SUBJECT_H
+
+#include "stdafx.h"
 #include "Observer.h"
 #include <list>
 
@@ -8,9 +12,11 @@ class Subject {
 public:
 	virtual void Attach(Observer* o);
 	virtual void Detach(Observer* o);
-	virtual void Notify();
+	virtual void Notify(int n);
 	Subject();
 	~Subject();
 private:
 	list<Observer*> *_observers;
 };
+
+#endif // !SUBJECT_H

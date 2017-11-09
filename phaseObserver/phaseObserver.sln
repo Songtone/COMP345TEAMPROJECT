@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "phaseObserver", "phaseObserver\phaseObserver.vcxproj", "{FAB74794-F3A6-4CCA-A46A-E02AC4FA73C7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "phaseObserver", "phaseObserver\phaseObserver.vcxproj", "{85F93FE8-958C-4B5C-8AFD-26A7C4C1927D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +13,19 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FAB74794-F3A6-4CCA-A46A-E02AC4FA73C7}.Debug|x64.ActiveCfg = Debug|x64
-		{FAB74794-F3A6-4CCA-A46A-E02AC4FA73C7}.Debug|x64.Build.0 = Debug|x64
-		{FAB74794-F3A6-4CCA-A46A-E02AC4FA73C7}.Debug|x86.ActiveCfg = Debug|Win32
-		{FAB74794-F3A6-4CCA-A46A-E02AC4FA73C7}.Debug|x86.Build.0 = Debug|Win32
-		{FAB74794-F3A6-4CCA-A46A-E02AC4FA73C7}.Release|x64.ActiveCfg = Release|x64
-		{FAB74794-F3A6-4CCA-A46A-E02AC4FA73C7}.Release|x64.Build.0 = Release|x64
-		{FAB74794-F3A6-4CCA-A46A-E02AC4FA73C7}.Release|x86.ActiveCfg = Release|Win32
-		{FAB74794-F3A6-4CCA-A46A-E02AC4FA73C7}.Release|x86.Build.0 = Release|Win32
+		{85F93FE8-958C-4B5C-8AFD-26A7C4C1927D}.Debug|x64.ActiveCfg = Debug|x64
+		{85F93FE8-958C-4B5C-8AFD-26A7C4C1927D}.Debug|x64.Build.0 = Debug|x64
+		{85F93FE8-958C-4B5C-8AFD-26A7C4C1927D}.Debug|x86.ActiveCfg = Debug|Win32
+		{85F93FE8-958C-4B5C-8AFD-26A7C4C1927D}.Debug|x86.Build.0 = Debug|Win32
+		{85F93FE8-958C-4B5C-8AFD-26A7C4C1927D}.Release|x64.ActiveCfg = Release|x64
+		{85F93FE8-958C-4B5C-8AFD-26A7C4C1927D}.Release|x64.Build.0 = Release|x64
+		{85F93FE8-958C-4B5C-8AFD-26A7C4C1927D}.Release|x86.ActiveCfg = Release|Win32
+		{85F93FE8-958C-4B5C-8AFD-26A7C4C1927D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {89D53703-21A7-4084-9552-57DFB5131A4A}
+		SolutionGuid = {BEFB6FAA-71E0-46CB-91B9-2AF01BC4A893}
 	EndGlobalSection
 EndGlobal

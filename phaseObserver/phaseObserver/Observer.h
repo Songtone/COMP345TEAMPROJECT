@@ -1,12 +1,17 @@
 #pragma once
 #ifndef OBSERVER_H
 #define OBSERVER_H
+#include "stdafx.h"
 
 class Observer {
+
 public:
 	~Observer();
-	virtual void Update() = 0;
+	virtual void Update(int n) = 0;
 protected:
 	Observer();
 };
-#endif // !OBSERVER_H
+
+#endif // !OBESERVER_H
+
+
