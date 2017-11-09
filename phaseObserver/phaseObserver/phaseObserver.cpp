@@ -10,7 +10,7 @@ int numberOfPlayers;
 int main(void) {
 	cout << "How many players?" << endl;
 	cin >> numberOfPlayers;
-	//create playersto be observed
+	//create players to be observed
 	Players *players = new Players;
 	
 	
@@ -19,9 +19,7 @@ int main(void) {
 	Phases *phases = new Phases(players);
 	
 	
-
-	//Advancing the Phases updates the digital clock
-	//as tick() calls Update() after it changed its state
+	
 	int count = 0;
 	while (winner) {
 		if (count < 5) {

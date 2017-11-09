@@ -18,6 +18,7 @@ public:
 	string countryDefense;
 	string countryToReceiveFortify;
 	string countryToGiveFortify;
+	int reinforceArmyNumber = 3;
 	int numberOfArmiesToFortify;
 	int numberOfAttackers;
 

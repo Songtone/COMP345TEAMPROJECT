@@ -7,6 +7,7 @@
 //CONCRETE OBSERVER
 using namespace std;
 
+
 Phases::Phases() {
 
 };
@@ -16,7 +17,7 @@ Phases::Phases(Players* s) {
 	_subject->Attach(this);
 };
 Phases::~Phases() {
-	//Upon destruction, detachess itself from a clock timer
+	//Upon destruction, detachess itself from a phases
 	_subject->Detach(this);
 };
 void Phases::Update(int n) {
@@ -29,10 +30,10 @@ void Phases::display(int n) {
 		if (_subject->getPhase() == 0) {
 			cout << "Player " << n << endl;
 			cout << "This is the reinforce phase" << endl;
-			cout << "You have 10 armies to place" << endl;
+			cout << "You have " << reinforceArmyNumber << " armies to place" << endl;
 			cout << "Please choose a country to reinforce!" << endl;
 			cin >> countryToReinforce;
-			cout << countryToReinforce << " will receive 10 armies as reinforcement!" << endl;
+			cout << countryToReinforce << " will receive " << reinforceArmyNumber << " armies as reinforcement!" << endl;
 			cout << endl;
 		}
 		else if (_subject->getPhase() == 1) {
@@ -88,10 +89,10 @@ void Phases::display(int n) {
 		if (_subject->getPhase() == 0) {
 			cout << "Player " << n << endl;
 			cout << "This is the reinforce phase" << endl;
-			cout << "You have 20 armies to place" << endl;
+			cout << "You have " << reinforceArmyNumber << " armies to place" << endl;
 			cout << "Please choose a country to reinforce!" << endl;
 			cin >> countryToReinforce;
-			cout << countryToReinforce << " will receive 20 armies as reinforcement!" << endl;
+			cout << countryToReinforce << " will receive " << reinforceArmyNumber << " armies as reinforcement!" << endl;
 			cout << endl;
 		}
 		else if (_subject->getPhase() == 1) {
@@ -147,10 +148,10 @@ void Phases::display(int n) {
 		if (_subject->getPhase() == 0) {
 			cout << "Player " << n << endl;
 			cout << "This is the reinforce phase" << endl;
-			cout << "You have 30 armies to place" << endl;
+			cout << "You have " << reinforceArmyNumber << " armies to place" << endl;
 			cout << "Please choose a country to reinforce!" << endl;
 			cin >> countryToReinforce;
-			cout << countryToReinforce << " will receive 30 armies as reinforcement!" << endl;
+			cout << countryToReinforce << " will receive " << reinforceArmyNumber << " armies as reinforcement!" << endl;
 			cout << endl;
 		}
 		else if (_subject->getPhase() == 1) {
@@ -206,10 +207,10 @@ void Phases::display(int n) {
 		if (_subject->getPhase() == 0) {
 			cout << "Player " << n << endl;
 			cout << "This is the reinforce phase" << endl;
-			cout << "You have 40 armies to place" << endl;
+			cout << "You have " << reinforceArmyNumber << " armies to place" << endl;
 			cout << "Please choose a country to reinforce!" << endl;
 			cin >> countryToReinforce;
-			cout << countryToReinforce << " will receive 40 armies as reinforcement!" << endl;
+			cout << countryToReinforce << " will receive " << reinforceArmyNumber << " armies as reinforcement!" << endl;
 			cout << endl;
 		}
 		else if (_subject->getPhase() == 1) {
@@ -265,10 +266,10 @@ void Phases::display(int n) {
 		if (_subject->getPhase() == 0) {
 			cout << "Player " << n << endl;
 			cout << "This is the reinforce phase" << endl;
-			cout << "You have 50 armies to place" << endl;
+			cout << "You have " << reinforceArmyNumber << " armies to place" << endl;
 			cout << "Please choose a country to reinforce!" << endl;
 			cin >> countryToReinforce;
-			cout << countryToReinforce << " will receive 50 armies as reinforcement!" << endl;
+			cout << countryToReinforce << " will receive " << reinforceArmyNumber << " armies as reinforcement!" << endl;
 			cout << endl;
 		}
 		else if (_subject->getPhase() == 1) {
@@ -324,10 +325,10 @@ void Phases::display(int n) {
 		if (_subject->getPhase() == 0) {
 			cout << "Player " << n << endl;
 			cout << "This is the reinforce phase" << endl;
-			cout << "You have 60 armies to place" << endl;
+			cout << "You have " << reinforceArmyNumber << " armies to place" << endl;
 			cout << "Please choose a country to reinforce!" << endl;
 			cin >> countryToReinforce;
-			cout << countryToReinforce << " will receive 60 armies as reinforcement!" << endl;
+			cout << countryToReinforce << " will receive " << reinforceArmyNumber << " armies as reinforcement!" << endl;
 			cout << endl;
 		}
 		else if (_subject->getPhase() == 1) {
@@ -379,4 +380,5 @@ void Phases::display(int n) {
 			cout << endl;
 		}
 	}
+	reinforceArmyNumber += 1;
 };
